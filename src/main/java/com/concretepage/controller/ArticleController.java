@@ -120,9 +120,9 @@ public class ArticleController {
 		article.setTitle("TESTTITLE1");
 		article.setCategory("TESTCATEROGY1");
 
-		Article article1=	getDBConnection1();
+		//Article article1=	getDBConnection1();
 
-		return new ResponseEntity<Article>(article1, HttpStatus.OK);
+		return new ResponseEntity<Article>(article, HttpStatus.OK);
 	}
 
 
@@ -171,33 +171,33 @@ public class ArticleController {
 	}
 
 
-	private Article getDBConnection1(){
-		
-		//List<Article> articleList=new ArrayList<>();
-		Article article=null;
-		try{
-			Class.forName("com.mysql.jdbc.Driver");
-			String url ="jdbc:mysql://vinaymysql.mysql.database.azure.com:3306/test";
-			Connection	myDbConn = DriverManager.getConnection(url, "vinayadmin@vinaymysql", "Vinay@2018");
-
-
-			Statement stmt=myDbConn.createStatement();
-			ResultSet rs=stmt.executeQuery("select * from articles");
-
-			while(rs.next())
-				article=new Article();
-			System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
-			article.setArticleId(100);
-			article.setTitle("TEST");
-			article.setCategory("TEST1222");
-			//articleList.add(article);
-			myDbConn.close();
-		}catch(Exception e){
-			
-			System.out.println(e);}
-
-		return article;
-	}
+//	private Article getDBConnection1(){
+//
+//		//List<Article> articleList=new ArrayList<>();
+//		Article article=null;
+//		try{
+//			Class.forName("com.mysql.jdbc.Driver");
+//			String url ="jdbc:mysql://vinaymysql.mysql.database.azure.com:3306/test";
+//			Connection	myDbConn = DriverManager.getConnection(url, "vinayadmin@vinaymysql", "Vinay@2018");
+//
+//
+//			Statement stmt=myDbConn.createStatement();
+//			ResultSet rs=stmt.executeQuery("select * from articles");
+//
+//			while(rs.next())
+//				article=new Article();
+//			System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+//			article.setArticleId(100);
+//			article.setTitle("TEST");
+//			article.setCategory("TEST1222");
+//			//articleList.add(article);
+//			myDbConn.close();
+//		}catch(Exception e){
+//
+//			System.out.println(e);}
+//
+//		return article;
+//	}
 
 
 } 
