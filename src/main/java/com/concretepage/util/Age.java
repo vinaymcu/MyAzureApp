@@ -11,6 +11,7 @@ public class Age
 {
     public static void main(String[] args) {
 
+        System.out.println("Hello Test");
         // Myclass is hidden inner class of Age interface
         // whose name is not written but an object to it
         // is created.
